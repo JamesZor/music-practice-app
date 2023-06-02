@@ -1,5 +1,7 @@
 # ( WATTS ) Song Learning and Practice App
 
+## WIP
+
 This is a Python-based application designed to assist users in learning new songs and practicing old ones using a spaced repetition algorithm. The app utilizes various tools and technologies, including pandas for data manipulation, rofi/dmenu for the graphical user interface, youtube-dl for downloading YouTube videos, and bash for scripting.
 
 ## Features
