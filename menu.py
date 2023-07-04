@@ -5,6 +5,7 @@ OPS = {'new':OPTIONS[0], 'bt':OPTIONS[1], 'Ex':OPTIONS[2]}
 
 
 def Disply(display_list:[str], menu_prompt:str, custom=False ,options=False)->str:
+    # display a menu with a custom list
     custom_str=''
     if custom:
         custom_str='-no-custom'
@@ -29,6 +30,7 @@ def connectBlueTooth()->bool:
 
 def playLink(link:str):
     process =sp.Popen(['ytfzf','-a', link])
+    process.wait()
     return
 
 

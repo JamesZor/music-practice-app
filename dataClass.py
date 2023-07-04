@@ -28,7 +28,8 @@ class dataRow:
                  'link':self.link,
                   'category':self.category}])
     def getTitle(self):
-        return "%s %s %s -- %s "%(self.artist, self.song, self.channel, self.link)
+        return "%s %s %s"%(self.artist, self.song, self.channel)
+        #return "%s %s %s -- %s "%(self.artist, self.song, self.channel, self.link)
     ### testing
     def printALL(self):
         attrs = vars(self)
@@ -49,7 +50,7 @@ class dataFrame:
     def frame2List(self):
         return_list=[]
         for index, row in self.frame.iterrows():
-            text = '%s  %s  %s'%(self.frame['artist'].values[index],self.frame['song'].values[index],self.frame['channel'].values[index]  )
+            text = '%s - %s - %s'%(self.frame['artist'].values[index],self.frame['song'].values[index],self.frame['channel'].values[index]  )
             return_list.append(text)
         return return_list
     def save2file(self):
@@ -57,6 +58,11 @@ class dataFrame:
     def readFile(self):
         temp = pd.read_csv(SAVE_PATH+DATA_FILE)
         self.frame = pd.concat([self.frame, temp], ignore_index=True)
+    def search4Link(self, inputlist)->str:
+        listSplit = inputlist.split(" - ")
+        rowTemp   =self.frame.query('(artist in @listSplit[0]) and song in @listSplit[1]')
+        return  rowTemp.link.values[0]
+
 
 ##############################
 

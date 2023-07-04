@@ -1,4 +1,7 @@
-,artist,song,channel,link,category,Unnamed: 0.1,Unnamed: 0
-0,song6,artist1,channel1,http,guitar,0.0,0.0
-1,,,,,bass,1.0,
-2,Beachtape,maybe,,https://youtube.com/watch?v=8lNH_5UmVl4,guitar,,
+,artist,song,channel,link,category,Unnamed: 0.4,Unnamed: 0.3,Unnamed: 0.2,Unnamed: 0.1,Unnamed: 0
+0,song6,artist1,channel1,http,guitar,0.0,0.0,0.0,0.0,0.0
+1,,,,,bass,1.0,1.0,1.0,1.0,
+2,Beachtape,maybe,,https://youtube.com/watch?v=8lNH_5UmVl4,guitar,2.0,2.0,2.0,,
+3,,,,,,3.0,3.0,,,
+4,You only live once,The strokes,Jorge Orellana,https://youtube.com/watch?v=h8Y7QiahMhg,guitar,4.0,,,,
+5,Cabbage,Dinner lady,,https://youtube.com/watch?v=dklgoPTv9X8,guitar,,,,,
