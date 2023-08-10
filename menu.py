@@ -1,8 +1,8 @@
 import subprocess as sp
-
+import logging 
 OPTIONS = ['Add New Track', 'Connect Speaker','Exit']
 OPS = {'new':OPTIONS[0], 'bt':OPTIONS[1], 'Ex':OPTIONS[2]}
-
+logging.basicConfig(filename='wattslog.log', encoding='utf-8', level=logging.DEBUG)
 
 def Disply(display_list:[str], menu_prompt:str, custom=False ,options=False)->str:
     # display a menu with a custom list
@@ -29,14 +29,18 @@ def connectBlueTooth()->bool:
         return True
 
 def playLink(link:str):
-    process =sp.Popen(['ytfzf','-a', link])
-    process.wait()
+    print(" About to play", link)
+    process =sp.Popen(['ytfzf','-a', link], stdout=sp.PIPE, stderr=sp.STDOUT)
+    outputMessage = str(process.communicate()[0])
+    if '[ERROR]' in outputMessage:
+        process.kill()
+        playLink(link)
     return
 
 
 def getYouTubeLink(searchTerm)->str:
     # change me data type..,
-    MAX_SEARCH_LIMIT:int=2
+    MAX_SEARCH_LIMIT:int=4
     LINK_HEADER:str="http"
 
     linkOut =''

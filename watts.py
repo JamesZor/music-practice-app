@@ -1,6 +1,7 @@
 import pandas as pd
 from dataClass import *
 import menu
+import logging
 
 USER_PROMPT = "Please select one"
 CAT = ['bass', 'guitar', 'backing', '']
@@ -24,6 +25,9 @@ def userSelectRow()->dataRow:
 
 if __name__ == "__main__":
     blueTooth=False
+    ## logging setup
+    logging.basicConfig(filename='wattslog.log', encoding='utf-8', level=logging.DEBUG)
+
     # create df and load the data
     df = dataFrame()
     df.readFile()
@@ -52,6 +56,7 @@ if __name__ == "__main__":
         else:
             # create a search function for date frame that returns link
             while True:
+                # need to add check if link is null
                 menu.playLink(df.search4Link(userSelection))
                 userRespone =menu.Disply(['yes','no'], "Do you want to repeat?",custom=False,options=False)
                 if userRespone == 'no':
